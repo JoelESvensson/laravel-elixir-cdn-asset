@@ -74,7 +74,7 @@ var prepGulpPaths = function(src, buildPath) {
 
     return new GulpPaths()
         .src(src, config.publicPath)
-        .output(buildPath || config.get('public.cdn-versioning.buildFolder'));
+        .output(buildPath || config.get('public.cdnVersioning.buildFolder'));
 };
 
 
