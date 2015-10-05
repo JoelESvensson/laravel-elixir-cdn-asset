@@ -28,7 +28,7 @@ Elixir.extend('cdnVersion', function(src, buildPath) {
 
     new Task('cdnVersion', function() {
         var files = vinylPaths();
-        var manifest = paths.output.baseDir + '/.manifest.json';
+        var manifest = paths.output.baseDir + '/rev-manifest.json';
 
         this.log(paths.src, paths.output);
 
