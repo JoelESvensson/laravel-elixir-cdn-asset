@@ -5,9 +5,9 @@ var gulp = require('gulp');
 var revReplace = require('gulp-rev-replace');
 var rev = require('gulp-rev');
 var Elixir = require('laravel-elixir');
+var config = Elixir.config;
 var parsePath  = require('parse-filepath');
 var vinylPaths = require('vinyl-paths');
-var publicPath  = Elixir.config.publicPath;
 
 var Task = Elixir.Task;
 var GulpPaths = Elixir.GulpPaths;
@@ -27,6 +27,7 @@ Elixir.extend('cdnVersion', function(src, buildPath) {
     var paths = prepGulpPaths(src, buildPath);
 
     new Task('cdnVersion', function() {
+        var publicPath = config.publicPath;
         var files = vinylPaths();
         var manifest = paths.output.baseDir + '/rev-manifest.json';
 
@@ -105,6 +106,7 @@ var emptyBuildPathFiles = function(buildPath, manifest) {
  * @return {object}
  */
 var copyMaps = function(src, buildPath) {
+    var publicPath = config.publicPath;
     src.forEach(function(file) {
         // We'll first get any files from the src
         // array that have companion .map files.
